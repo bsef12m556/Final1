@@ -26,14 +26,27 @@
 			 *  Simple image gallery. Uses default settings
 			 */
 
-            $('.fancybox').fancybox();
+            $('.fancybox-thumbs').fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+                closeBtn: false,
+                arrows: false,
+                nextClick: true,
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+
+            });
         });
 
     </script>
 
 </head>
 
-<body class="event container">
+<body class=" container" style="background-image: url(../../Content/ss.jpg); background-size: cover; ">
 
     <div style="padding-top:20px ;">
         <table cellpadding="20" cellspacing="20" class="table">
@@ -75,13 +88,12 @@
                                {
                                  string s = u.Id + "_" + i.ToString() + ".jpg";
                                  <td class="pull_right" style="padding-top:50px" width="150" height="120">
-                                     <a class="fancybox" href="~/Files/@s" style="width :150px ;height:120px"> <img src="~/Files/@s " /></a>
+                                     <a class="fancybox-thumbs" href="~/Files/@s" style="width :150px ;height:120px"> <img src="~/Files/@s " /></a>
                                  </td>
                                }
                         
                     </tr>
                     }
-
 
 
                 </tbody>

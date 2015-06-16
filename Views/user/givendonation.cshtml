@@ -3,7 +3,7 @@
 }
 @using final.Models;
 
-<body class="signin container">
+<body class=" container" style="background-image:url(../../Content/signin.jpg); background-size:cover;">
     <div id="desc" class="des pull-center locate" style="width:700px ;">
         <table class="table table-striped">
             <thead>
@@ -15,26 +15,26 @@
             </thead>
             <tbody style="font-family:Narkisim; color:#0094ff">
 
-                @foreach( Fund f in Model)
+                @foreach (Fund f in Model)
                 {
                     <tr>
-                    <td>
-                        <h4>Ngo ID   : @f.user1.name </h4>
-                        <h4>Card #   : @f.Credit_card</h4>
-                        <h4>Ammount  : @f.Ammount</h4>
-                        <hr />
-                    </td>
-                </tr>
-                    
+                        <td>
+                            <h4>Ngo ID   : @f.Ngo_id</h4>
+                            <h4>Card #   : @f.Credit_card</h4>
+                            <h4>Ammount  : @f.Ammount</h4>
+                            <hr />
+                        </td>
+                    </tr>
+
                 }
-                
+
 
             </tbody>
 
         </table>
 
     </div>
-   
-    
+
+
 
 </body>
