@@ -30,20 +30,25 @@
                        </div>
 
                         <div id="Area"> </div>
+<div id="w"> wait...</div>
 
         <h2 id="sel2"><input type="submit" value="Search" class="btn btn-primary btn-lg btn-block"></h2>
+
    
 
 <script>
     $('document').ready(function () {
         $('#Countryy').hide()
+        $('#w').hide()
     });
 
     $('#sel2').click(function () {
+        $('#w').show()
         var value = $('#Country').val()
         var value2 = $('#Cityy').val()
         var values = value + "," + value2
         $('#Area').load('/Home/cityDetails?Country=' + values);
+        $('#w').hide()
         $('#sel2').hide() 
     });
 </script>
