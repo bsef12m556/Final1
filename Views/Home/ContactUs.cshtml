@@ -2,62 +2,99 @@
     ViewBag.Title = "ContactUs";
 }
 
-<!DOCTYPE html>
-<html>
+<header>
+    <script src="http://maps.googleapis.com/maps/api/js">
+    </script>
+
+    <script>
+        var myCenter = new google.maps.LatLng(31.2928, 74.1747);
+
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</header>
+
 <body class="container" style="font-family: Narkisim; position: relative; background-image: url(../../Content/contact.jpg); background-size: cover; ">
-    <table>
+    <table cellpadding="100">
         <tr>
             <td>
 
                 <div style="position: relative;">
-                    <h3 style=" color:#b60505; padding-top: 100px; font-size: 30px">CONTACT US</h3>
+                    <h3 style=" color:#b60505; padding-top: 50px; font-size: 30px">CONTACT US</h3>
 
-                   <form action="/Home/submitcomment" method="post" style=" border-color: wheat; border: double; font-family: Narkisim; font-size: 15px; padding-top: 30px; margin: 20px; background-color: black; opacity: 0.6; filter: alpha(opacity=60);" class=" form-group" >
-                        <div style="width: 500px; padding-left:50px ; color:#104368" >
-
-
-                            <p>NAME </p>
-                            <p><input type="text" name="Name" style=" width:350px" required class="form-control" /><br /></p>
-                            <p>EMAIL</p>
-                            <p><input type="text" name="Email" style=" width:350px;" required class="form-control" /><br /></p>
-                            <p>SUBJECT</p>
-                            <p><input type="text" name="Subject" style=" width:350px;" required class="form-control" /><br /></p>
-                            <p>MESSAGE </p>
-                            <p><textarea name="Comment" style=" width:350px; height :100px" required class="form-control" ></textarea>
-                             </p><br />
-                            <p class="pull-right"><input type="submit" value="Submit" class="btn btn-primary btn-lg" style="color:black;"></p>
-                        </div>
+                   <form action="/Home/submitcomment" method="post" style=" border-color: wheat; border: double; font-family: Narkisim; font-size: 15px; padding-top: 30px; " class=" form-group" >
+                       <div style="width: 500px; padding-left: 50px; color: #041f9f; margin: 20px; background-color: black; opacity: 0.6; filter: alpha(opacity=60); ">
+                           <p style="padding-top:50px">NAME </p>
+                           <p><input type="text" name="Name" style=" width:350px" required class="form-control" /><br /></p>
+                           <p>EMAIL</p>
+                           <p><input type="text" name="Email" style=" width:350px;" required class="form-control" /><br /></p>
+                           <p>SUBJECT</p>
+                           <p><input type="text" name="Subject" style=" width:350px;" required class="form-control" /><br /></p>
+                           <p>MESSAGE </p>
+                           <p style="padding-bottom:50px"><textarea name="Comment" style=" width:350px; height :100px" required class="form-control"></textarea></p>
+                       </div>
+                            <p class="pull-right" style="padding-top:10px"><input type="submit" value="Submit" class="btn btn-primary btn-lg" style="color:black;"></p>
+                      
                     </form>
                 </div>
             </td>
-        </tr>
-        <tr>
-            <td>
-                <div style="width: 300px; color:black;">
-                    <h4 style="color: #104368; ">MAILING ADDRESS</h4>
-                    <h5>rabay4bhatti@gmail.com</h5>
-                    <h5 class="text-center">
-                        Global Domains International, Inc 701 Palomar Airport Road #300 Carlsbad, CA 92011
-                        LAHORE.
-                    </h5>
-                </div>
-            <td />
-            </tr>
-            <tr>
-            <td>
-                <div style="width: 300px; color: black;">
-                    <h4 style="color: #104368; ">FRIENDLY SUPPORT</h4>
-                    <h4>Voice:</h4>
-                    <h5> 1-760-602-3000 (M-F 8:00-15:00 PST)<br /></h5>
-                    <h5> Fax: 1-760-602-3099 </h5>
-                </div>
-            </td>
-                <tr>
-        </tr>
+            <td width="200px" ></td>
+            <td style ="padding-top:50px">
+                <table style="width: 400px; padding-top: 50px">
+                    <tr style="height: 130px; border-color: black; border: double;">
+                      <td >
+                        <div style=" color:black; height:120px;" class="text-center">
+                        <h4 style="color: #104368; ">MAILING ADDRESS</h4>
+                        <h5>rabay4bhatti@gmail.com</h5>
+                        <h5>
 
+                            Global Domains International,<br />
+                            Inc 701 Palomar Airport Road #300 Carlsbad,<br />
+                            CA 92011<br />
+                            LAHORE.<br />
+                        </h5>
+                        </div>
+                    </td>
+                  </tr>
+                    <tr style="height:10px"></tr>
+
+                    <tr style="height: 130px; border-color: black; border: double;" class="text-center">
+                        
+                        <td>
+                            <div style=" color: black; height:120px;">
+                                <h4 style="color: #104368; ">FRIENDLY SUPPORT</h4>
+                                <h4>Voice:</h4>
+                                <h5> 1-760-602-3000 (M-F 8:00-15:00 PST)<br /></h5>
+                                <h5> Fax: 1-760-602-3099 </h5>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+
+                  <tr>
+                      <td>
+                         <div id="googleMap" style="height:300px;"></div>
+                      </td>
+                  </tr>
+              </table> 
+            </td> 
+        </tr>
     </table>
-
-
-
+  
 </body>
-</html>
